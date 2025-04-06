@@ -1,6 +1,6 @@
 import { test } from "@playwright/test";
 
-test("SEP Practice", async ({ page }) => {
+test("@smoke SEP Practice", async ({ page }) => {
   const code = Buffer.from(
     `${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`
   ).toString("base64");
@@ -11,11 +11,11 @@ test("SEP Practice", async ({ page }) => {
 
   let firstNameInputBox = page.locator("//input[@formcontrolname='firstName']");
   await firstNameInputBox.fill("Bogdan");
-    await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000);
 
   let lastNameInputBox = page.locator("//input[@formcontrolname='lastName']");
   await lastNameInputBox.fill("Lutsenko");
-    await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000);
 
   let emailInputBox = page.locator("//input[@formcontrolname='email']");
   await emailInputBox.fill("bl.lutsenko@gmail.com");
@@ -83,6 +83,4 @@ test("SEP Practice", async ({ page }) => {
   await payButton.click();
 
   await page.waitForTimeout(3000);
-
-
 });
